@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Books</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    </head>
+    <body class="bg-dark">
+        <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-2 fixed-top text-white">
+            <div class="container">
+              <a href="#" class="navbar-brand fw-bold fs-2 m-0 p-0">Books Practice Assignment</a>
+      
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a href="/books" class="nav-link fw-bold fs-5 bg-primary text-white">Add Book</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <section class="py-5 bg-dark"></section>
+
+        <section>
+            <div class="container col-md-6 col-sm-10 offset-md-3 offset-sm-1">
+                <div class="row g-5">
+                    <div class="col">
+                        <div class="mb-3">
+                            <span class="h1 text-white">New Author</span>
+        
+                        </div>
+                        {% with messages = get_flashed_messages(category_filter=["error"]) %}    
+                            {% if messages %}                            
+                                {% for message in messages %}            
+                                    <p>{{message}}</p>                  
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <form action="/save_authors" method="POST" class="p-4 bg-primary text-white">
+            
+                            <div class="form-group mb-3">
+                                <label for="name" class="fs-4 mb-2" >Name:</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            
+            
+                            <div class="form-group mt-5 px-5">
+                                <input type="submit" class="form-control fs-4" value="Create">
+                            </div>
+            
+                        </form>
+
+                    </div>
+
+                    <div class="col">
+                        <div class="row">
+                            <div class="h1 text-white">All Authors</div>
+                        </div>
+                        
+                        
+                        {% if authors: %}
+                            <div class="row border border-white py-3 text-center">
+                            {% for author in authors %}
+
+                                        <div class="fs-4">
+                                            <a class="text-white" href="/authors/{{author.id}}">{{ author.name }}</a>
+                                        </div>
+                    
+                            {% endfor %}
+
+                            </div>
+                        {% endif %}
+                        
+
+
+
+                    </div>
+
+                </div>
+                
+
+            </div>
+
+        </section>
+
+        <footer class="p-2 col-12 bg-dark text-white text-center position-fixed bottom-0">
+            <div class="container">
+              <p class="lead">Coding Dojo Bootcamp Core Assignment</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </body>
+</html>
