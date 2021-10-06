@@ -30,7 +30,7 @@
               <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
-                    <a href="/books" class="nav-link fw-bold fs-5 bg-primary text-white">Add Book</a>
+                    <a href="/books" class="nav-link  fs-5 bg-primary text-white">Add Book</a>
                   </li>
                 </ul>
               </div>
@@ -40,12 +40,11 @@
         <section class="py-5 bg-dark"></section>
 
         <section>
-            <div class="container col-md-6 col-sm-10 offset-md-3 offset-sm-1">
+            <div class="container">
                 <div class="row g-5">
                     <div class="col">
-                        <div class="mb-3">
-                            <span class="h1 text-white">New Author</span>
-        
+                        <div class="h1 text-white text-center">
+                            New Author
                         </div>
                         {% with messages = get_flashed_messages(category_filter=["error"]) %}    
                             {% if messages %}                            
@@ -72,7 +71,7 @@
 
                     <div class="col">
                         <div class="row">
-                            <div class="h1 text-white">All Authors</div>
+                            <div class="h1 text-white text-center">All Authors</div>
                         </div>
                         
                         
